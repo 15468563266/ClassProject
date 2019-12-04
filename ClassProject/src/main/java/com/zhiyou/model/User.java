@@ -1,16 +1,17 @@
 package com.zhiyou.model;
 
-import java.sql.Date;
+import java.util.Date;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class User {
 
-	private int id;
+	private Integer id;
 	private String accounts;
 	private String phone;
 	private String password;
@@ -20,6 +21,5 @@ public class User {
 	private String address;
 	private String imgurl;
 	private Date createtime;
-	
-	
+
 }
