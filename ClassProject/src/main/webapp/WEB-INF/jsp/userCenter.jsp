@@ -32,12 +32,12 @@
 			<ul class="clearfix f_left">
 				<li><a href="index.jsp">首页</a></li>
 				
-				<li class="menu_active"><a href="#">个人中心</a></li>
+				<li class="menu_active"><a href="usershow">个人中心</a></li>
 			</ul>
 			
 			<div id="user_bar">
 				<a >	
-						<img id="avatar" src="${pageContext.request.contextPath}/z/avatar_lg.png" alt="" width="30px;">
+					<img id="avatar" src="${pageContext.request.contextPath}/z/avatar_lg.png" alt="" width="30px;" height="35px">
 				</a>
 				<a  id="lay_out">退出</a>
 			</div>
@@ -52,15 +52,15 @@
                 <ul class="profile_tab_header f_left clearfix">
                     <li><a href="updateshow">更改资料</a></li>
                     <li class="profile_tab_line">|</li>
-                    <li><a href="#">更改头像</a></li>
+                    <li><a href="photoshow">更改头像</a></li>
                     <li class="profile_tab_line">|</li>
-                    <li><a href="#">密码安全</a></li>
+                    <li><a href="passwordshow">密码安全</a></li>
                 </ul>
                 <div class="proflle_tab_body">
                     
                     <div class="proflle_tab_workplace clearfix">
                         <div class="profile_avatar_area">
-		                         <img id="avatar" width="200px;" src="http://localhost:8080/Voids/" alt="">
+		                         <img id="avatar" width="200px;" src="${pageContext.request.contextPath}/z/avatar_lg.png" alt="">
                             <p>  欢迎回来！</p>
                         </div>
                         <ul class="profile_ifo_area">

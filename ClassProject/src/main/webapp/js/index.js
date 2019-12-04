@@ -213,6 +213,8 @@ function commitLogin(){
         	//alert(data);
              if(data=="sucess"){
                   document.location.reload();
+               }else{
+            	   alert(data);
                }
         });
         

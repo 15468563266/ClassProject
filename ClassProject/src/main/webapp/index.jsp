@@ -63,7 +63,7 @@
                 <table cellspacing="10">
                     <tbody><tr>
                         <td colspan="2">
-                            <a >
+                            <a href="#">
                                 <img src="z/html5.jpg" alt="" class="image scale" draggable="false">
                                 <div class="headline">
                                     <span>Web前端教程</span>
@@ -73,7 +73,7 @@
                         </td>
                         <td>
                             <!--上线时修改id-->
-                            <a >
+                            <a href="#">
                                 <img src="z/ui.jpg" alt="" class="image scale" draggable="false">
                                 <div class="headline">
                                     <span>UI设计教程</span>
@@ -82,7 +82,7 @@
                             </a>
                         </td>
                         <td rowspan="2" class="one_three">
-                            <a  class="opacity5">
+                            <a  class="opacity5" href="#">
                                 <img src="z/java.jpg" alt="" class="image" draggable="false">
                                 <div class="headline">
                                     <span>Java教程</span>
@@ -93,7 +93,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <a  class="opacity5">
+                            <a  class="opacity5" href="#">
                                 <img src="z/bigdata.jpg" alt="" class="image" draggable="false">
                                 <div class="headline">
                                     <span>大数据教程</span>
@@ -102,7 +102,7 @@
                             </a>
                         </td>
                         <td colspan="2">
-                            <a >
+                            <a href="#">
                                 <img src="z/python.jpg" alt="" class="image scale" draggable="false">
                                 <div class="headline">
                                     <span>Python教程</span>
@@ -113,7 +113,7 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <a>
+                            <a href="#">
                                 <img src="z/php.jpg" alt="" class="image scale" draggable="false">
                                 <div class="headline">
                                     <span>PHP教程</span>
