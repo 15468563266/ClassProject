@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <beans xmlns="http://www.springframework.org/schema/beans"
 	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	   xmlns:context="http://www.springframework.org/schema/context"
@@ -55,4 +54,20 @@
 			<!-- 引用mybatis的session工厂 -->
 			<property name="sqlSessionFactory" ref="sessionFactory"></property>
 		</bean>
+		<!-- 8.配置拦截器 -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/*.do"/>
+			<bean class="com.zhiyou.interceptor.FileTypeInterceptor"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors>	
+	<!-- 9.文件上传配置 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!--文件总大小  -->
+		<property name="maxUploadSize" value="#{1024*1024*1024}"></property>
+		<!-- 一次缓存多少字节，即上传速度  每次缓存4kb-->
+		<property name="maxInMemorySize" value="4096"></property>
+		<!-- 指定编码格式 -->
+		<property name="defaultEncoding" value="UTF-8"></property>
+	</bean>
 </beans>

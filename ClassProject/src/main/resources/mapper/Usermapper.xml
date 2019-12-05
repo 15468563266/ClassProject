@@ -44,7 +44,10 @@
   					address=#{address},
   				</if>
   				<if test="imgurl!=null">
-  					imgurl=#{imgurl}
+  					imgurl=#{imgurl},
+  				</if>
+  				<if test="createtime!=null">
+  					createtime=#{createtime}
   				</if>
   				</set>
   			where id=#{id};
