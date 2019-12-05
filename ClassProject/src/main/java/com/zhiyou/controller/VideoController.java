@@ -15,6 +15,7 @@ import com.zhiyou.service.VideoService;
 @Controller
 public class VideoController {
 		
+	
 	@Autowired
 	VideoService service;
 	
