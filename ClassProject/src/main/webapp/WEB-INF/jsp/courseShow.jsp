@@ -52,59 +52,50 @@
         </div>
 
         <!--面包屑导航-->
-        <div class="container mian-nav" id="navDiv">公开课 / WEB前端</div>
+        <div class="container mian-nav" id="navDiv">公开课 / ${subjectList.subject_name }</div>
 		
 
-        <div class="classify">
-            <div class="container" id="dataContainer"><div class="section"><div class="classifyName"><p class="title title-first">Web前端入门小项目</p></div><div class="kcIntro"><p class="int"><span>课程介绍：</span>
-            适合无编程基础但想学H5前端开发的同学入门学习，也适合UI、Java、PHP等其他学科学员预习或练习。本课程通过新闻页面、个人主页、个人简历、场景秀等多个项目案例由浅入深以项目实战的方式让同学们体验到前端开发乐趣。本课程突出实战，如果希望深入学习课程中涉及到的知识可报名学习智游前端开发课程。
-            </p></div><ul>
-             
-             		<li class="section-main" onclick="getVideo(217)">
-             		<div class="thum" style="background-image: url()"></div>
-             		<p>前端开发环境搭建</p>
-             		<div class="classify-v-info"><span class="count" title="观看次数"><img src="${pageContext.request.contextPath}/z/count.png" alt="">433</span>
-             		<span class="duration" title="视频时长"><img src="${pageContext.request.contextPath}/z/player.png" alt="">562</span></div>
-             		</li>            	         	            
-            </ul></div>
-        </div>
-    </div>
-        <div class="classify">
-            <div class="container" id="dataContainer"><div class="section"><div class="classifyName"><p class="title title-first">前端开发与Git入门</p></div><div class="kcIntro"><p class="int"><span>课程介绍：</span>
-            Git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。经过本章课程学习你将轻松入门，学会使用Git管理自己的源代码，让自己的开发之路井井有条，想进一步学习Git进阶部分的同学可报名智游前端开发课程。
-            </p></div><ul>
-             
-             		<li class="section-main" onclick="getVideo(245)">
-             		<div class="thum" style="background-image: url()"></div>
-             		<p>Git的安装及配置</p>
-             		<div class="classify-v-info"><span class="count" title="观看次数"><img src="${pageContext.request.contextPath}/z/count.png" alt="">208</span>
-             		<span class="duration" title="视频时长"><img src="${pageContext.request.contextPath}/z/player.png" alt="">320</span></div>
-             		</li>
-             	
-             	            
-            </ul></div>
-        </div>
-    </div>
-
-     
-        <div class="classify">
-            <div class="container" id="dataContainer"><div class="section"><div class="classifyName"><p class="title title-first">每天20分钟轻松入门React</p></div><div class="kcIntro"><p class="int"><span>课程介绍：</span>
-            适合有一定HTML+JS基础、想学习React的同学。本课程循序渐进、浅显易懂，非常适合React入门学习。想进一步学习和使用React进行开发的同学可以报名智游前端开发课程。
-            </p></div><ul>
-             
-             		<li class="section-main" onclick="getVideo(224)">
-             		<div class="thum" style="background-image: url()"></div>
-             		<p>React快速体验-组件</p>
-             		<div class="classify-v-info"><span class="count" title="观看次数"><img src="${pageContext.request.contextPath}/z/count.png" alt="">191</span>
-             		<span class="duration" title="视频时长"><img src="${pageContext.request.contextPath}/z/player.png" alt="">907</span></div>
-             		</li>
-
-             	            
-            </ul></div>
-        </div>
-    </div>
-
-    
+   <c:forEach begin="0" end="${courseList.size()-1 }" var="j">
+	<div class="classify">
+		<div class="container" id="dataContainer">
+			<div class="section">
+				<div class="classifyName">
+					<p class="title title-first">${courseList[j].course_title }</p>
+				</div>
+				<div class="kcIntro">
+					<p class="int">
+						<span>课程介绍：</span>
+						${courseList[j].course_desc }
+					</p>
+				</div>
+				<ul>
+					<c:set var="p" value="videoList${j }"></c:set>
+					<c:if test="${!empty requestScope[p]  }">
+						<c:forEach begin="0" end="${requestScope[p].size()-1 }" var="i">
+							<li class="section-main" onclick="getVideo(217)">
+								<div class="thum" style="background-image: url('${requestScope[p][i].image_url}')">
+								
+								<a href=""></a>
+								
+								</div>
+								<p>${requestScope[p][i].title}</p>
+								<div class="classify-v-info">
+									<span class="count" title="观看次数">
+										<img src="z/count.png" alt="">${requestScope[p][i].play_num }
+									</span> 
+									<span class="duration" title="视频时长">
+										<img src="z/player.png" alt="">${requestScope[p][i].time }
+									</span>
+								</div>
+							</li>
+						</c:forEach>
+					</c:if>
+				</ul>
+			</div>
+		</div>
+	</div>
+</c:forEach>
+  
 <!--页脚-->
 <footer>
 	<ul>
@@ -188,10 +179,10 @@
 </div>
 
 
-
+<!-- 
 <form action="http://localhost:8080/Voids/">
 	<input type="text" value="1" id="isLogin">
-</form>
+</form> -->
 
     
 <script src="${pageContext.request.contextPath}/js/jquery-1.js"></script>

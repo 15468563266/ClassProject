@@ -9,14 +9,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Video {
 
-	private int video_id;
+	private Integer video_id;
 	private String title;
 	private String detail;
-	private int time;
-	private int speaker_id;
-	private int course_id;
+	private Integer time;
+	private Integer speaker_id;
+	private Integer course_id;
 	private String video_url;
 	private String image_url;
-	private int play_num;
-	
+	private Integer play_num;
+
 }

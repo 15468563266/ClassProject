@@ -20,42 +20,7 @@
 <script src="${pageContext.request.contextPath}/jquery/jquery.js"/></script>
 <script src="${pageContext.request.contextPath}/jquery/jquery.validate.min.js"></script>
 <script src="${pageContext.request.contextPath}/jquery/messages_zh.js"></script>
-<script type="text/javascript">
-	$().ready(function() {
-		$("#form").validate({
-				rules:{
-					password1:{
-						required:true,
-						//minlength:8
-					},
-					password:{
-						required:true,
-						equalTo:"#password1"
-					}
-				},
-				messages:{
-					password1:{
-						required:"请输入密码",
-						//minlength:"密码长度最小为8位"
-					},
-					password:{
-						required:"请输入确认密码",
-						equalTo:"确认密码需要与密码保持一致"
-					}	
-				}
-		});
-	})	
-							
-</script>
-                            
-<style type="text/css">
-.error{
-	color:red;
-}
-#i{
-	color:red;
-	}
-</style>
+
 </head>
 <body class="w100">
 
@@ -77,9 +42,9 @@
 			
 			<div id="user_bar">
 				<a>	
-					<img id="avatar" src="${pageContext.request.contextPath}/z/avatar_lg.png" alt="" >
+					<img id="avatar" src="${user.imgurl }" alt="" width="30px;" height="35px">
 				</a>
-				<a >退出</a>
+				<a href="loginout">退出</a>
 			</div>
 		</div>
 	</menu>
@@ -99,21 +64,21 @@
                 <div class="proflle_tab_body">
                     <div class="proflle_tab_workplace clearfix">
                         <div class="profile_avatar_area">
-		                         <img id="avatar" width="200px;" src="${pageContext.request.contextPath}/z/avatar_lg.png" alt="">
+		                         <img id="avatar" width="200px;" src="${user.imgurl }" alt="">
                         </div>
                         <div class="profile_ifo_area">
-                            <form action="passwordUpdate" method="post" onsubmit="return i" id="form">
+                            <form action="passwordUpdate" method="post" onsubmit="return on()" >
                                 <div class="form_group">
                                     <span class="dd">旧　密　码：</span>
-                                    <input  type="password" id="oldMsg" onblur="on()"><i id="i"></i>
+                                    <input  type="password" id="oldMsg" onblur="check()"><i id="i" style="color: red"></i>
                                 </div>
                                 <div class="form_group">
                                     <span class="dd">新　密　码：</span>
-                                    <input  type="password" name="password1" id="password1">
+                                    <input  type="password" id="regPsw">
                                 </div>
                                 <div class="form_group">
                                     <span class="dd">确认新密码：</span>
-                                    <input  type="password" name="password"><span id="passMsg"></span>
+                                    <input  type="password" id="regPswAgain" name="password"><span id="passMsg"></span>
                                 </div>
                                 <div class="form_submit dd">
                                 <input type="hidden" name="id" value="${user.id}">
@@ -121,24 +86,52 @@
                                     <a href="usershow">取消</a>
                                 </div>
                             </form>
-                            <script type="text/javascript">
-                            	var i=false;
-								function on() {
-									if(${user.password}==$("#oldMsg").val()){
-										i=true;
-										$("i").text("");
-									}else {
-										i=false;
-										$("i").text("原密码錯誤");
-									}
-								}
-							</script>
+                           
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
+     <script type="text/javascript">
+        var i=false;
+        var c=false;
+		function check() {
+			if(${user.password}==$("#oldMsg").val()){
+				i=true;
+				$("i").text("");
+			} else {
+				i=false;
+				$("i").text("原密码错误");
+			}
+			return i;
+		}
+		$("#regPswAgain").blur(function(){
+			
+		     var pass01= $("#regPsw").val();
+		      var pass02= $("#regPswAgain").val();
+		      if(null==pass01 || ""==pass01 || null==pass02 || ""==pass02){
+		          $("#passMsg").text("密码不能为空").css("color","red");
+		          c =false;
+		      }else{
+		          if(pass01!=pass02){
+		              c=false;
+		              $("#passMsg").text("两次密码输入不一致，请重新输入").css("color","red");
+		          }else{
+		              c=true;
+		              $("#passMsg").text("");
+		          }
+		      }
+		   
+		});
+		function  on(){
+			if(i&&c){
+				return true;
+			}else{
+				return false;
+			}
+		} 
+	</script>
 <footer>
 	<div class="container">
 		<ul>
@@ -149,5 +142,6 @@
 	</div>
 </footer>
 
+<script src="${pageContext.request.contextPath}/js/index.js"></script>
 </body>
 </html>

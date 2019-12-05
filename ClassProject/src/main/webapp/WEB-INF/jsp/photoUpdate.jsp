@@ -35,9 +35,9 @@
 			</ul>
 			<div id="user_bar">
 				<a>	
-					<img id="avatar" src="${pageContext.request.contextPath}/z/avatar_lg.png" alt="" >
+					<img id="avatar" src="${user.imgurl }" alt="" width="30px;" height="35px">
 				</a>
-				<a >退出</a>
+				<a href="loginout">退出</a>
 			</div>
 		</div>
 	</menu>
@@ -58,7 +58,7 @@
                 <div class="proflle_tab_body">
                     <div class="proflle_tab_workplace clearfix">
                         <div class="profile_avatar_area">	
-                                 <img src="${pageContext.request.contextPath}/z/avatar_lg.png">
+                                 <img src="${user.imgurl }" width="200px;">
                             <p style="text-align: center;">当前头像</p>
                         </div>
                         <div class="profile_ifo_area">

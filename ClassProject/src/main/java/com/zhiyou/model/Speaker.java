@@ -9,10 +9,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Speaker {
 
-	private int id;
+	private Integer id;
 	private String speaker_name;
 	private String speaker_desc;
 	private String speaker_job;
 	private String pic_url;
-	
+
 }

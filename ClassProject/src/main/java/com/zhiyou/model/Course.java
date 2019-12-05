@@ -8,10 +8,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Course {
-	private int id;
+	private Integer id;
 	private String course_title;
 	private String course_desc;
-	private int subject_id;
+	private Integer subject_id;
 
-	
 }

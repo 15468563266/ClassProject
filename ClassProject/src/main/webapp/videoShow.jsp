@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <!-- saved from url=(0084)http://localhost:8080/Voids/user/VideoGo.do?id=218&subjectName=WEB%E5%89%8D%E7%AB%AF -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -51,15 +52,14 @@
 	<div class="container">
 		<div class="v-intro">
 			<div class="left">
-				<video id="videoPlayer" src="http://vod.zhiyou100.com/gkk/h5/c1/01.mp4" class="video-js vjs-default-skin" controls="controls" poster="static/z/02.jpg" data-setup="{}" height="280" width="627">
+				<video id="videoPlayer" src="./mp/J.Fla - Wolves ( cover by J.Fla ).mp4" loop="loop" autoplay="autoplay" class="video-js vjs-default-skin" controls="controls" poster="static/z/02.jpg" data-setup="{}" height="280" width="627">
 				</video>
 			</div>
 
 			<div class="right">
 				<p class="right-title">HTML页面基本结构</p>
 				<div class="avatar">
-					<span style="background-image: url(${pageContext.request.contextPath}/speakimg/3.jpg
-)"></span>
+					<span style="background-image: url(${pageContext.request.contextPath}/speakimg/3.jpg)"></span>
 					<p><b>讲师：赵桂丹</b><br><i>H5第1期学员，毕业后留校任助教职务。精通H5课程内容，先后参与过智游教育网站、移动网站、微网站、课时管理系统等多个项目的开发工作。</i></p>
 				</div>
 				<p class="video-intro">

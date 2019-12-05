@@ -22,20 +22,18 @@
 </head>
 
 <body class="w100" style="padding-top: 0px;">
-    
-
-
 
 <header>
 	<div class="container">
 		<span>欢迎来到IT培训的黄埔军校——智游教育！</span>
 
 			<div id="userBlock" style="float:right">
-				<a href="loginout">退出</a>
+				
 				<c:if test="${empty user }">
 				<a id="login_open" >登录</a>
 				</c:if>
 				<c:if test="${!empty user }">
+				<a href="loginout">退出</a>
 				<a href="usershow">${user.accounts }</a>
 				</c:if>
 				<a id="reg_open">注册 </a>
@@ -63,7 +61,7 @@
                 <table cellspacing="10">
                     <tbody><tr>
                         <td colspan="2">
-                            <a href="#">
+                            <a href="WebCourseShow?number=1">
                                 <img src="z/html5.jpg" alt="" class="image scale" draggable="false">
                                 <div class="headline">
                                     <span>Web前端教程</span>
@@ -73,7 +71,7 @@
                         </td>
                         <td>
                             <!--上线时修改id-->
-                            <a href="#">
+                            <a href="WebCourseShow?number=6">
                                 <img src="z/ui.jpg" alt="" class="image scale" draggable="false">
                                 <div class="headline">
                                     <span>UI设计教程</span>
@@ -102,7 +100,7 @@
                             </a>
                         </td>
                         <td colspan="2">
-                            <a href="#">
+                            <a href="WebCourseShow?number=10">
                                 <img src="z/python.jpg" alt="" class="image scale" draggable="false">
                                 <div class="headline">
                                     <span>Python教程</span>
@@ -113,7 +111,7 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <a href="#">
+                            <a href="WebCourseShow?number=11">
                                 <img src="z/php.jpg" alt="" class="image scale" draggable="false">
                                 <div class="headline">
                                     <span>PHP教程</span>
@@ -248,4 +246,5 @@
 <script src="./js/index.js"></script>
 
 
-</body></html>
+</body>
+</html>

@@ -8,9 +8,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Admin {
-	private int admin_id;
+	private Integer admin_id;
 	private String accounts;
 	private String password;
 	private String admin_remark;
-	
+
 }

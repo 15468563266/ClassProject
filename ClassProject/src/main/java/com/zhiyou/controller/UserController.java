@@ -84,11 +84,11 @@ public class UserController {
 
 	// 更新用户资料
 	@RequestMapping("userUpdate")
-	public String update(User user1, HttpServletRequest req, HttpServletResponse rep) throws Exception {
+	public String update(User user1, Integer id, HttpServletRequest req, HttpServletResponse rep) throws Exception {
 		req.setCharacterEncoding("utf-8");
 		service.update(user1);
-		req.getSession().setAttribute("user", user1);
-		return "userCenter";
+		req.getSession().setAttribute("user", service.selectById(id));
+		return "redirect:usershow";
 	}
 
 	// 跳转到更新页面

@@ -9,12 +9,12 @@ import org.apache.commons.net.ftp.FTPClient;
 public class FtpUtil {
 	public static String upload(InputStream input, String fileNmae) {
 		fileNmae = System.currentTimeMillis() + fileNmae;
-		String url = "ftp://192.168.124.60/";
+		String url = "ftp://192.168.124.81/";
 		// 实例化FTPClient
 		FTPClient ftp = new FTPClient();
 		// 2、连接服务器
 		try {
-			ftp.connect("192.168.124.60");
+			ftp.connect("192.168.124.81");
 			// 3、根据账号密码 登录服务器
 			ftp.login("admin", "123");
 			// 4、更改客户端模式
