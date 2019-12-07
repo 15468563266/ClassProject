@@ -41,7 +41,7 @@
 		
 		<a onclick="JavaScript:addFavorite2()"><img src="z/sc.png" draggable="false">加入收藏</a>
 		
-		<a target="_blank" href="http://localhost:8080/Voids/controller/adminLogin.do"><img src="z/we.png" draggable="false">后台管理</a>
+		<a target="_blank" href="adminindex.jsp"><img src="z/we.png" draggable="false">后台管理</a>
 		<a class="color_e4"><img src="z/phone.png" draggable="false"> 0371-88888598　　4006-371-555</a>
 
 	</div>
