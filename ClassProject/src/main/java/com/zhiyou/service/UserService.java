@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 
 import com.zhiyou.model.User;
@@ -19,4 +20,6 @@ public interface UserService {
 	User selectById(Integer id);
 
 	User selectByAccounts(HttpServletRequest req, String accounts, String password);
+
+	User selectByAccounts(@Param("accounts") String accounts);
 }

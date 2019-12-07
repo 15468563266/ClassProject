@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.zhiyou.mapper.CourseShowMapper;
 import com.zhiyou.model.Course;
+import com.zhiyou.model.Speaker;
 import com.zhiyou.model.Subject;
 import com.zhiyou.model.Video;
 import com.zhiyou.service.CourseShowService;
@@ -30,6 +31,16 @@ public class CourseShowServiceImpl implements CourseShowService {
 	public List<Video> selectVideoById(Integer course_id) {
 
 		return mapper.selectVideoById(course_id);
+	}
+
+	public List<Course> selectByCourse(Integer course_id) {
+		// TODO Auto-generated method stub
+		return mapper.selectByCourse(course_id);
+	}
+
+	public List<Speaker> selectSpeakerById(Integer id) {
+		// TODO Auto-generated method stub
+		return mapper.selectSpeakerById(id);
 	}
 
 }

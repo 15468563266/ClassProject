@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.zhiyou.mapper.UserMapper;
 import com.zhiyou.model.User;
 import com.zhiyou.service.UserService;
+import com.zhiyou.util.MD5;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -38,9 +39,10 @@ public class UserServiceImpl implements UserService {
 	}
 
 	public User selectByAccounts(HttpServletRequest req, String accounts, String password) {
+		MD5 md5 = MD5.getInstance();
 		User user = mapper.selectByAccounts(req, accounts, password);
 		if (user != null) {
-			if (user.getPassword().equals(password)) {
+			if (user.getPassword().equals(md5.getMD5(password))) {
 			} else {
 				req.setAttribute("msg", "密码错误，请重新输入");
 				return null;
@@ -50,6 +52,11 @@ public class UserServiceImpl implements UserService {
 			return null;
 		}
 		return user;
+	}
+
+	public User selectByAccounts(String accounts) {
+		// TODO Auto-generated method stub
+		return mapper.selectByAccounts(accounts);
 	}
 
 }

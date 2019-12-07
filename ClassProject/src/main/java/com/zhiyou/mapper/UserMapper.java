@@ -19,4 +19,6 @@ public interface UserMapper {
 
 	User selectByAccounts(HttpServletRequest req, @Param("accounts") String accounts,
 			@Param("password") String password);
+
+	User selectByAccounts(@Param("accounts") String accounts);
 }

@@ -5,6 +5,7 @@
   <!-- namespace :代表这个文件的命名空间，根据这个名称定位到这个文件 -->
   <mapper namespace="com.zhiyou.mapper.CourseShowMapper" >
   		<!-- subject的结果集 -->
+  		
 	  <resultMap type="subject" id="subjectMap">
 	  	<id column="subject_id" property="subject_id"/>
 	  	<result column="subject_name" property="subject_name"/>
@@ -36,17 +37,24 @@
 	  	<result column="image_url" property="image_url"/>
 	  	<result column="play_num" property="play_num"/>
 	  </resultMap>
-	  
+	  <!-- 查询subject -->
   	<select id="selectSubjectById" resultMap="subjectMap">
   		select * from subject where subject_id=#{subject_id};
   	</select>
+  	<!-- 查询讲师 -->
   	<select id="selectSpeakerById" resultMap="speakerMap">
   		select * from speaker where id=#{id};
   	</select>
+  	<!-- 根据subject_id查询课程 -->
   	<select id="selectCourseById" resultMap="courseMap">
   		select * from course where subject_id=#{subject_id};
   	</select>
+  	<!-- 查询课程内容 -->
   	<select id="selectVideoById" resultMap="videoMap">
   		select * from video where course_id=#{course_id};
+  	</select>
+  	<!-- 根据course_id查询课程 -->
+  	<select id="selectByCourse" resultMap="courseMap">
+  		select * from course where id=#{id};
   	</select>
   </mapper>

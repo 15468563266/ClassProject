@@ -72,7 +72,9 @@ $("#iform .button").click(function (ev) {
     } else if (!reg3.test(input3)) {
         alert("QQ格式不符！！请重新填写！");
     } else {
+    	 alert("报名成功！");
         $("#iform").submit();
+       
     }
 
 });
@@ -115,7 +117,7 @@ $("#regEmail").blur(function(){
     if(null != emailVal && ""!=emailVal){
         var params={"accounts":emailVal};
        // alert(params);
-        $.post("selectAll",params,function(data){
+        $.post("add1",params,function(data){
             if(data=="success"){
                regIsCommitEmail=true;
                $("#emailMsg").text("该邮箱可用").css("color","green");
@@ -182,7 +184,6 @@ function commitRegForm(){
                       $("#regBlock").css("display","none");
                       $("#userBlock").css("display","block");*/
 					   document.location.reload();
-                      
                    }
                 },
                 error:function(){

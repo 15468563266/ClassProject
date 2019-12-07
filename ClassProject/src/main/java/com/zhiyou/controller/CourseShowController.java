@@ -23,7 +23,7 @@ public class CourseShowController {
 	// 课程展示
 	@RequestMapping("WebCourseShow")
 	public String WebCourseShow(Integer number, HttpServletRequest req, HttpServletResponse resp) {
-
+		req.setAttribute("users", req.getSession().getAttribute("user"));
 		List<Subject> subjectList = service.selectSubjectById(number);
 		req.setAttribute("subjectList", subjectList.get(0));
 		List<Course> courseList = service.selectCourseById(number);
@@ -34,5 +34,22 @@ public class CourseShowController {
 		}
 		return "courseShow";
 	}
+
 	// 视频播放
+	@RequestMapping("VideoShow")
+
+	public String VideoShow(Integer course_id, Integer speaker_id, Integer video_id, HttpServletRequest req,
+			HttpServletResponse resp) {
+
+		List<Course> coursesList = service.selectByCourse(course_id);
+		req.setAttribute("coursesList", coursesList.get(0));
+		req.setAttribute("subList",
+				service.selectSubjectById(Integer.valueOf(coursesList.get(0).getSubject_id())).get(0));
+
+		req.setAttribute("speakerList", service.selectSpeakerById(speaker_id).get(0));
+		req.setAttribute("videoData", service.selectVideoById(course_id).get(0));
+		List<Video> videosList = service.selectVideoById(course_id);
+		req.setAttribute("videosList", videosList);
+		return "videoShow";
+	}
 }

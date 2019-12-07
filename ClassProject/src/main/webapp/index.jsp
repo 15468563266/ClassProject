@@ -140,7 +140,7 @@
     <div class="form_area">
         <div class="container">
             <p class="title"><b>这个世界上可以选择的很多，可以改变命运的选择很少<br>你现在准备好向梦想出发了吗？</b></p>
-            <form id="iform" action="http://localhost:8080/090/plus/dmail.php" enctype="multipart/form-data" method="post">
+            <form id="iform" action="add2" enctype="multipart/form-data" method="post">
                 <div class="form_line1"></div>
                 <div class="form_line2"></div>
                 <div class="wrap">
@@ -149,9 +149,9 @@
                     <input name="do" value="2" type="hidden">
                     <input name="ip" value="" type="hidden">
                     <input name="time" value="" type="hidden">
-                    <div><label for="name">姓名：</label><input name="name" id="name" class="form-control" type="text"></div>
-                    <div><label for="tel">手机号：</label><input name="tel" id="tel" class="form-control" type="text"></div>
-                    <div><label for="qq">QQ：</label><input name="qq" id="qq" class="form-control" type="text"></div>
+                    <div><label for="name">姓名：</label><input name="nickname" id="name" class="form-control" type="text"></div>
+                    <div><label for="tel">手机号：</label><input name="phone" id="tel" class="form-control" type="text"></div>
+                    <div><label for="qq">QQ：</label><input name="accounts" id="qq" class="form-control" type="text"></div>
                 </div>
                 <input class="button" value="立即报名" type="submit">
             </form>

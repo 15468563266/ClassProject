@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.zhiyou.model.User;
 import com.zhiyou.service.UserService;
 import com.zhiyou.util.FtpUtil;
+import com.zhiyou.util.MD5;
 
 @Controller
 public class UserController {
@@ -24,7 +25,7 @@ public class UserController {
 	// 登录
 	@RequestMapping(value = "/userLogin")
 	public void login(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-		req.setCharacterEncoding("utf-8");
+
 		String accounts = req.getParameter("email");
 		String password = req.getParameter("password");
 		User user = service.selectByAccounts(req, accounts, password);
@@ -45,6 +46,15 @@ public class UserController {
 
 	}
 
+	// 退出
+	@RequestMapping(value = "/loginout1")
+	public String loginout1(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+		req.setCharacterEncoding("utf-8");
+		req.getSession().setAttribute("user", null);
+		return "courseShow";
+
+	}
+
 	// 跳转到个人中心展示
 	@RequestMapping(value = "/usershow")
 	public String usershow(HttpServletRequest req, HttpServletResponse resp) throws Exception {
@@ -56,8 +66,31 @@ public class UserController {
 	@ResponseBody
 	@RequestMapping("add")
 	public String add(User user, HttpServletRequest req, HttpServletResponse resp) {
+		MD5 md5 = MD5.getInstance();
+		user.setPassword(md5.getMD5(user.getPassword()));
 		service.add(user);
 		return "success";
+
+	}
+
+	// 用户注册
+	@RequestMapping("add2")
+	public void add2(User user, HttpServletRequest req, HttpServletResponse resp) throws Exception {
+		service.add(user);
+		resp.sendRedirect("index.jsp");
+
+	}
+
+	@ResponseBody
+	@RequestMapping("add1")
+	public String add1(User user, HttpServletRequest req, HttpServletResponse resp) {
+		User user2 = service.selectByAccounts(user.getAccounts());
+		if (user2 == null) {
+			return "success";
+		} else {
+			return "false";
+		}
+
 	}
 
 	// 查询所有用户

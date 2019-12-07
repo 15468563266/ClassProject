@@ -1,30 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<!-- saved from url=(0050)http://localhost:8080/Voids/controller/web.do?id=1 -->
+<!-- saved from url=(0084)http://localhost:8080/Voids/user/VideoGo.do?id=218&subjectName=WEB%E5%89%8D%E7%AB%AF -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <!--<base href="http://localhost:8080/Voids/">--><base href=".">
  
-
-    <!-- base href="http://localhost:8080/video/" -->
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     
+    <!--<base href="http://localhost:8080/Voids/">--><base href=".">
     <meta name="renderer" content="webkit">
     <meta name="keywords" content="Web前端视频教程,大数据视频教程,HTML5视频教程,UI视频教程,PHP视频教程,java视频教程,python基础教程">
     <meta name="description" content="智游教育在线课程视频,为您提供java,python,HTML5,UI,PHP,大数据等学科经典视频教程在线浏览学习,精细化知识点解析,深入浅出,想学不会都难,智游教育,学习成就梦想！">
     
 <link rel="stylesheet" href="${pageContext.request.contextPath}/z/base.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/z/css.css">
-<link rel="icon" href="http://localhost:8080/video/favicon.png" type="image/png">
+<link rel="icon" href="http://localhost:8080/Voids/static/z/favicon.png" type="image/png">
+    <link href="${pageContext.request.contextPath}/z/video-js.css" rel="stylesheet" type="text/css">
     <title>在线公开课-智游教育|java|大数据|HTML5|python|UI|PHP视频教程</title>
+
 </head>
 
 <body class="w100" style="padding-top: 0px;">
 <header>
 	<div class="container">
 		<span>欢迎来到IT培训的黄埔军校——智游教育！</span>
-
 			<div id="userBlock" style="float:right">
 				<a href="loginout1">退出</a>
 				<c:if test="${empty user }">
@@ -35,7 +36,6 @@
 				</c:if>
 				<a id="reg_open">注册 </a>
 			</div>
-	
 		<a onclick="JavaScript:addFavorite2()"><img src="${pageContext.request.contextPath}/z/sc.png" draggable="false">加入收藏</a>
 		
 		<a target="_blank"><img src="${pageContext.request.contextPath}/z/we.png" draggable="false">后台管理</a>
@@ -43,65 +43,60 @@
 
 	</div>
 </header>
+<div>
+    <!--面包屑导航-->
+    <div class="container mian-nav">公开课 / ${subList.subject_name}</div>
+    <input id="videoId" value="246" type="hidden">
+    <div id="content">
+<div class="intro">
+	<div class="container">
+		<div class="v-intro">
+			<div class="left">
+				<video id="videoPlayer" src="${videoData.video_url }" loop="loop" autoplay="autoplay" class="video-js vjs-default-skin" controls="controls" poster="static/z/02.jpg" data-setup="{}" height="280" width="627">
+				</video>
+			</div>
 
-
-    <div id="app">
-        <!--banner图-->
-        <div class="banner">
-        	<img alt="" src="${pageContext.request.contextPath}/z/banner-1.jpg" width="100%" height="470px;">
-        </div>
-
-        <!--面包屑导航-->
-        <div class="container mian-nav" id="navDiv">公开课 /${subjectList.subject_name }</div>
-
-   <c:forEach begin="0" end="${courseList.size()-1 }" var="j">
-	<div class="classify">
-		<div class="container" id="dataContainer">
-			<div class="section">
-				<div class="classifyName">
-					<p class="title title-first">${courseList[j].course_title }</p>
+			<div class="right">
+				<p class="right-title">${videoData.title }</p>
+				<div class="avatar">
+					<span style="background-image: url(${speakerList.pic_url })"></span>
+					<p><b>${speakerList.speaker_job }：${speakerList.speaker_name }</b><br><i>${speakerList.speaker_desc }</i></p>
 				</div>
-				<div class="kcIntro">
-					<p class="int">
-						<span>课程介绍：</span>
-						${courseList[j].course_desc }
-					</p>
-				</div>
-				<ul>
-					<c:set var="p" value="videoList${j }"></c:set>
-					<c:if test="${!empty requestScope[p]  }">
-						<c:forEach begin="0" end="${requestScope[p].size()-1 }" var="i">
-							<li class="section-main" onclick="getVideo(217)">
-								<c:if test="${empty users }">
-								<a >
-									<div class="thum" style="background-image: url('${requestScope[p][i].image_url}')"></div>
-								</a>
-								</c:if>
-								
-								<c:if test="${!empty users }">
-								<a href="VideoShow?course_id=${requestScope[p][i].course_id}&speaker_id=${requestScope[p][i].speaker_id}&video_id=${requestScope[p][i].video_id}">
-									<div class="thum" style="background-image: url('${requestScope[p][i].image_url}')"></div>
-								</a>
-								</c:if>
-									<p>${requestScope[p][i].title}</p>
-								<div class="classify-v-info">
-									<span class="count" title="观看次数">
-										<img src="z/count.png" alt="">${requestScope[p][i].play_num }
-									</span> 
-									<span class="duration" title="视频时长">
-										<img src="z/player.png" alt="">${requestScope[p][i].time }
-									</span>
-								</div>
-							</li>
-							
-						</c:forEach>
-					</c:if>
-				</ul>
+				<p class="video-intro">
+					<span>本节内容：</span>${videoData.detail }
+				</p>
 			</div>
 		</div>
+
+		<div class="kcjs">
+			<p class="title">课程介绍</p>
+			<p class="content">${coursesList.course_desc}</p>
+		</div>
+
 	</div>
-</c:forEach>
-  
+</div>
+<!--目录-->
+<div class="catalog">
+	<div class="container">
+		<p class="title">目录</p>
+			<c:if test="${!empty videosList }">
+			<c:forEach begin="0" end="${videosList.size()-1 }" var="i">
+			<div class="chapter">
+				<p class="biaoti"><a href="VideoShow?course_id=${videosList[i].course_id }&speaker_id=${videosList[i].speaker_id}">${videosList[i].title }</a></p>
+				<p class="lecturer">${videosList[i].detail }</p>
+				<p class="lecturer">${speakerList.speaker_job }：${speakerList.speaker_name }</p>
+				<div class="v-info">
+					<span class="count"><img src="${pageContext.request.contextPath}/z/count.png" alt="">${videosList[i].play_num }</span>
+					<span class="duration"><img src="${pageContext.request.contextPath}/z/player.png" alt="">${videosList[i].time }</span>
+				</div>
+			</div>
+		 </c:forEach>
+		 </c:if>
+	</div>
+</div>
+</div>
+</div>
+ 
 <!--页脚-->
 <footer>
 	<ul>
@@ -127,8 +122,8 @@
 				<li class="erwei">
 					<br>
 					<div>
-						<img class="weixin" src="${pageContext.request.contextPath}/z/a_002.png" alt="" draggable="false">
-						<img class="weibo" src="${pageContext.request.contextPath}/z/a.png" alt="" draggable="false">
+						<img class="weixin" src="${pageContext.request.contextPath}/z/a.png" alt="" draggable="false">
+						<img class="weibo" src="${pageContext.request.contextPath}/z/a_002.png" alt="" draggable="false">
 					</div>
 				</li>
 			</ul>
@@ -168,11 +163,11 @@
 		<div class="mask_content_body">
 			<form id="regForm" action="add">
 				<h3>新用户注册</h3>
-				<input id="regEmail" placeholder="请输入邮箱" name="accounts" type="email"><span id="emailMsg"></span>
+				<input id="regEmail" placeholder="请输入邮箱" name="email" type="email"><span id="emailMsg"></span>
 				<input id="regPsw" placeholder="请输入密码" name="password" type="password">
 				<input id="regPswAgain" placeholder="请再次输入密码" name="psw_again" type="password"><span id="passMsg"></span>
 				<div id="yzm" class="form-inline">
-					<input name="yzm" style="width: 45%;  display: inline-block;" type="text">
+					<input name="yzm" style="width: 45%; display: inline-block;" type="text">
 					<div id="v_container" style="width: 45%;height: 40px;float:right;"><canvas id="verifyCanvas" width="100" height="38" style="cursor: pointer;">您的浏览器版本不支持canvas</canvas><canvas id="verifyCanvas" width="100" height="38" style="cursor: pointer;">您的浏览器版本不支持canvas</canvas></div>
 				</div>
 				<input onclick="return commitRegForm();" value="注　册" type="submit">
@@ -185,18 +180,14 @@
 </div>
 
 
-<!-- 
-<form action="http://localhost:8080/Voids/">
-	<input type="text" value="1" id="isLogin">
-</form> -->
-
     
 <script src="${pageContext.request.contextPath}/js/jquery-1.js"></script>
 <script src="${pageContext.request.contextPath}/js/gVerify.js"></script>
 <script src="${pageContext.request.contextPath}/js/index.js"></script>
-  
+
+<script src="${pageContext.request.contextPath}/js/video.js"></script>
+   
 
 
-</div>
-</body>
-</html>
+
+</body></html>
