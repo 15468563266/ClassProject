@@ -46,15 +46,6 @@ public class UserController {
 
 	}
 
-	// 退出
-	@RequestMapping(value = "/loginout1")
-	public String loginout1(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-		req.setCharacterEncoding("utf-8");
-		req.getSession().setAttribute("user", null);
-		return "courseShow";
-
-	}
-
 	// 跳转到个人中心展示
 	@RequestMapping(value = "/usershow")
 	public String usershow(HttpServletRequest req, HttpServletResponse resp) throws Exception {
@@ -64,7 +55,7 @@ public class UserController {
 
 	// 用户注册
 	@ResponseBody
-	@RequestMapping("add")
+	@RequestMapping("addUser")
 	public String add(User user, HttpServletRequest req, HttpServletResponse resp) {
 		MD5 md5 = MD5.getInstance();
 		user.setPassword(md5.getMD5(user.getPassword()));
@@ -74,7 +65,7 @@ public class UserController {
 	}
 
 	// 用户注册
-	@RequestMapping("add2")
+	@RequestMapping("addTest")
 	public void add2(User user, HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		service.add(user);
 		resp.sendRedirect("index.jsp");
@@ -82,7 +73,7 @@ public class UserController {
 	}
 
 	@ResponseBody
-	@RequestMapping("add1")
+	@RequestMapping("addText")
 	public String add1(User user, HttpServletRequest req, HttpServletResponse resp) {
 		User user2 = service.selectByAccounts(user.getAccounts());
 		if (user2 == null) {

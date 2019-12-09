@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace: 代表这个文件的命名空间,根据这个名称可以定位到这个文件 -->
+<mapper namespace="com.zhiyou.mapper.SpeakerMapper">
+	 <resultMap type="speaker" id="speakerMap">
+		<id column="id" property="id"/>
+		<result column="speaker_name" property="speaker_name"/>
+		<result column="speaker_desc" property="speaker_desc"/>
+		<result column="speaker_job" property="speaker_job"/>
+		<result column="pic_url" property="pic_url"/>
+	</resultMap> 
+	<select id="selectCount" resultType="Integer">
+		select count(*) from speaker
+	</select>
+	
+	<select id="selectAllLimit" resultMap="speakerMap">	
+	select * from speaker limit ${page},${num}
+	</select>
+		
+	<select id="selectByID" resultMap="speakerMap">
+	select * from speaker where id = #{id}
+	</select>
+	
+	<update id="update" parameterType="speaker">		 
+		update speaker  
+			<set>		
+					<if test="speaker_name!=null">
+						speaker_name=#{speaker_name},
+					</if>
+					<if test="speaker_desc!=null">
+						speaker_desc=#{speaker_desc},
+					</if>
+					<if test="speaker_job!=null">
+						speaker_job=#{speaker_job}	
+					</if>
+				</set>	
+			where id=#{id}	
+	</update> 
+	
+	<delete id="delete">
+		delete from speaker where id = #{id}
+	</delete>
+	
+	<insert id="add" parameterType="speaker">
+		insert into speaker(speaker_name,speaker_desc,speaker_job) values (#{speaker_name},#{speaker_desc},#{speaker_job})
+	</insert>
+</mapper>

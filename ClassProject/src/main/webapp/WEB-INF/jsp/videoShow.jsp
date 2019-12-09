@@ -27,7 +27,7 @@
 	<div class="container">
 		<span>欢迎来到IT培训的黄埔军校——智游教育！</span>
 			<div id="userBlock" style="float:right">
-				<a href="loginout1">退出</a>
+				<a href="loginout">退出</a>
 				<c:if test="${empty user }">
 				<a id="login_open" >登录</a>
 				</c:if>
@@ -40,7 +40,7 @@
 		
 		<a target="_blank"><img src="${pageContext.request.contextPath}/z/we.png" draggable="false">后台管理</a>
 		<a class="color_e4"><img src="${pageContext.request.contextPath}/z/phone.png" draggable="false"> 0371-88888598　　4006-371-555</a>
-
+		<a href="index.jsp">首页</a>
 	</div>
 </header>
 <div>

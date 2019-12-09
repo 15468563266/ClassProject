@@ -125,7 +125,7 @@
 
 	<script type="text/javascript">
 		function showAddPage(){
-			location.href="course/add.jsp";
+			location.href="addCourse";
 		}
 		function delCourseById(Obj,id,title){
 

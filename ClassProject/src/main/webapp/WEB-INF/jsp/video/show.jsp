@@ -53,32 +53,12 @@
 	</div>
 	<!-- /.container-fluid -->
 </nav>
-
-	
-	
-		
-	
-    
     <div class="jumbotron" style="padding-top: 15px;padding-bottom: 15px;">
 	  <div class="container">
 	          <h2>视频管理</h2>
 	  </div>
 	</div>
-		<form action="videoLike">
-					<table class="table table-bordered table-hover" style="text-align: center;table-layout:fixed;">
-					<tr>
-
-					<td>
-					<select name="field">
-						<option value="0" selected="selected">请选择搜索字段</option>
-						<option value="title">视频标题</option>
-						<option value="detail">视频内容</option>
-					</select>
-					<input type="submit" value="搜索">
-					</td>
-					</tr>
-					</table>
-	</form>
+		
 	<form action="http://localhost:8080/Voids/Course/deleteall.do">
 	<div class="container">
     	<button onclick="showAddPage()" type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -144,7 +124,7 @@
 
 	<script type="text/javascript">
 		function showAddPage(){
-			location.href="video/add.jsp";
+			location.href="addVideo";
 		}
 		function deleteAll() {
 			var checkedNum=$("input[name='checkbox']:checked").length;

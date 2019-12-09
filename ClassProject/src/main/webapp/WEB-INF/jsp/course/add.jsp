@@ -59,7 +59,7 @@ b {
 </nav>
 	<div class="jumbotron" style="padding-top: 15px;padding-bottom: 15px;">
 		<div class="container">		
-				<h2>修改课程</h2>		
+				<h2>添加课程</h2>		
 		</div>
 	</div>
 

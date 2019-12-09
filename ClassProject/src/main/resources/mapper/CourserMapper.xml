@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace: 代表这个文件的命名空间,根据这个名称可以定位到这个文件 -->
+<mapper namespace="com.zhiyou.mapper.CourseMapper">
+
+
+	 <resultMap type="course" id="courseMap">
+		<id column="id" property="id"/>
+		<result column="course_title" property="course_title"/>
+		<result column="course_desc" property="course_desc"/>
+		<result column="subject_id" property="subject_id"/>
+	</resultMap> 
+	<select id="selectCount" resultType="Integer">
+		select count(*) from course
+	</select>
+
+	<select id="selectAllLimit" resultMap="courseMap">	
+	select * from course limit ${page},${num}
+	</select>
+	
+	<select id="selectById2" resultMap="courseMap">
+	select * from course where id = #{id}
+	</select>
+	
+	<update id="update2" parameterType="course">
+	update course  
+			<set>		
+					<if test="course_title!=null">
+						course_title=#{course_title},
+					</if>
+					<if test="course_desc!=null">
+						course_desc=#{course_desc},
+					</if>
+					<if test="subject_id!=0">
+						subject_id=#{subject_id},	
+					</if>
+				</set>	
+			where id=#{id}	
+	</update>
+	
+	<insert id="add2" parameterType="course">
+		insert into course(course_title,course_desc,subject_id) values (#{course_title},#{course_desc},#{subject_id})
+	</insert>
+	
+	<delete id="delete2">
+		delete from course where id = #{id}
+	</delete>
+	
+	
+</mapper>

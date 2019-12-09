@@ -4,15 +4,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>智游教育</title>
 </head>
-<body>
-	<form action="${pageContext.request.contextPath }/video" method="post"> 
-	用户名<input type="text" name="username"><br>
-	密码    <input type="passwrod" name="passwrod"><br>
+<body >
+	<div style="text-align: center;" >
+	<form action="${pageContext.request.contextPath }/video" method="post" > 
+	账    号:<input type="text" name="username"><br><br>
+	密    码:<input type="password" name="password"><br>
 	      <input type="submit" value="登录">	
 	</form>
-
+    </div>
 
 </body>
 </html>

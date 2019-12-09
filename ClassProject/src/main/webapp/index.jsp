@@ -140,7 +140,7 @@
     <div class="form_area">
         <div class="container">
             <p class="title"><b>这个世界上可以选择的很多，可以改变命运的选择很少<br>你现在准备好向梦想出发了吗？</b></p>
-            <form id="iform" action="add2" enctype="multipart/form-data" method="post">
+            <form id="iform" action="addTest" enctype="multipart/form-data" method="post">
                 <div class="form_line1"></div>
                 <div class="form_line2"></div>
                 <div class="wrap">

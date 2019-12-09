@@ -26,7 +26,7 @@
 		<span>欢迎来到IT培训的黄埔军校——智游教育！</span>
 
 			<div id="userBlock" style="float:right">
-				<a href="loginout1">退出</a>
+				<a href="loginout">退出</a>
 				<c:if test="${empty user }">
 				<a id="login_open" >登录</a>
 				</c:if>
@@ -40,6 +40,7 @@
 		
 		<a target="_blank"><img src="${pageContext.request.contextPath}/z/we.png" draggable="false">后台管理</a>
 		<a class="color_e4"><img src="${pageContext.request.contextPath}/z/phone.png" draggable="false"> 0371-88888598　　4006-371-555</a>
+		<a href="index.jsp">首页</a>
 
 	</div>
 </header>
@@ -73,7 +74,7 @@
 						<c:forEach begin="0" end="${requestScope[p].size()-1 }" var="i">
 							<li class="section-main" onclick="getVideo(217)">
 								<c:if test="${empty users }">
-								<a >
+								<a login_open>
 									<div class="thum" style="background-image: url('${requestScope[p][i].image_url}')"></div>
 								</a>
 								</c:if>
@@ -189,6 +190,14 @@
 <form action="http://localhost:8080/Voids/">
 	<input type="text" value="1" id="isLogin">
 </form> -->
+
+$('#login_open1').click(function () {
+    $('#login').removeClass('hidden');
+});
+$('#login_close1').click(function(){
+    $('#login').addClass('hidden');
+});
+
 
     
 <script src="${pageContext.request.contextPath}/js/jquery-1.js"></script>

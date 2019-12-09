@@ -117,7 +117,7 @@ $("#regEmail").blur(function(){
     if(null != emailVal && ""!=emailVal){
         var params={"accounts":emailVal};
        // alert(params);
-        $.post("add1",params,function(data){
+        $.post("addText",params,function(data){
             if(data=="success"){
                regIsCommitEmail=true;
                $("#emailMsg").text("该邮箱可用").css("color","green");
@@ -171,7 +171,7 @@ function commitRegForm(){
              
              $.ajax({
               
-                url:"add",
+                url:"addUser",
                 data:$("#regForm").serialize(),
                 type:"POST",
                 success:function(data){
